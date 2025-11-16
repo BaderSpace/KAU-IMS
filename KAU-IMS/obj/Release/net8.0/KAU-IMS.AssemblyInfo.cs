@@ -13,7 +13,7 @@ using System.Reflection;
 
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-KAU_IMS-592cb02d-80dc-4895-8847-cea6dd3b2129")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("KAU-IMS")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2bffb117af30f99ee3d440a6ed9d554c9eb5223e")]
 [assembly: System.Reflection.AssemblyProductAttribute("KAU-IMS")]
