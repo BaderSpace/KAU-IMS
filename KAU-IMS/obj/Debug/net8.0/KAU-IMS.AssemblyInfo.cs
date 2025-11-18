@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KAU-IMS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f852e202df8f1cc97b4ea763f76ef8c28943781")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2af594edbccd101ae885f18ae999ab5e8c1abb9f")]
 [assembly: System.Reflection.AssemblyProductAttribute("KAU-IMS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KAU-IMS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
