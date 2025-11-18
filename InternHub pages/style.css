@@ -11,16 +11,16 @@ body {
 }
 
 main {
-    min-height: 100vh;
+	min-height: 100vh;
 }
 
 a {
 	text-decoration: none;
 }
 
-h1 { 
-    padding-bottom: 50px; 
-    font-weight: bold;
+h1 {
+	padding-bottom: 50px;
+	font-weight: bold;
 }
 
 header {
@@ -33,7 +33,7 @@ header {
 }
 
 footer {
-    background-color: #000e29;
+	background-color: #000e29;
 	color: #ffffff;
 	height: 100px;
 	display: flex;
@@ -47,16 +47,16 @@ nav {
 	padding-right: 20%;
 }
 
-nav a {
-	padding: 6px 10px;
-	border-radius: 4px;
-	color: #ffffff;
-}
+	nav a {
+		padding: 6px 10px;
+		border-radius: 4px;
+		color: #ffffff;
+	}
 
-nav a:hover,
-nav a.current {
-	background: rgba(255, 255, 255, 0.15);
-}
+		nav a:hover,
+		nav a.current {
+			background: rgba(255, 255, 255, 0.15);
+		}
 
 .top-section {
 	background: linear-gradient(135deg, #000000, #6f7dff);
@@ -67,6 +67,19 @@ nav a.current {
 	padding: 56px;
 	justify-content: center;
 }
+
+.info-section {
+	display: grid;
+	gap: 24px;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 6%;
+}
+
+	.info-section h2 {
+		margin-bottom: 20px;
+	}
 
 section.credentials-section {
 	align-items: center;
@@ -79,9 +92,26 @@ section.credentials-section {
 .text-container {
 	display: inline-block;
 	width: fit-content;
-    height: fit-content;
-    padding: 5%;
+	height: fit-content;
+	padding: 5%;
 }
+
+.card {
+	display: inline-block;
+	border: 2px solid;
+	border-radius: 8px;
+	border-color: #0f62fe;
+	background-color: #0b1736;
+	color: white;
+	padding: 40px;
+	text-align: center;
+}
+
+	.card h2 {
+		margin-bottom: 30px;
+		color: #8eb3fd;
+	}
+
 
 .credentials-container {
 	border: 2px solid;
@@ -102,9 +132,9 @@ input {
 	border-radius: 6px;
 }
 
-input[type="submit"]:hover input[type="reset"]:hover {
-	filter: brightness(0.95);
-}
+	input[type="submit"]:hover input[type="reset"]:hover {
+		filter: brightness(0.95);
+	}
 
 .btn {
 	padding: 10px 16px;
@@ -114,21 +144,21 @@ input[type="submit"]:hover input[type="reset"]:hover {
 	color: #111;
 }
 
-.btn.primary {
-	background: #fff;
-	color: #0f62fe;
-	border-color: #fff;
-}
+	.btn.primary {
+		background: #fff;
+		color: #0f62fe;
+		border-color: #fff;
+	}
 
-.btn.outline {
-	background: transparent;
-	color: #fff;
-	border-color: #fff;
-}
+	.btn.outline {
+		background: transparent;
+		color: #fff;
+		border-color: #fff;
+	}
 
-.btn:hover {
-	filter: brightness(0.95);
-}
+	.btn:hover {
+		filter: brightness(0.95);
+	}
 
 
 form {
