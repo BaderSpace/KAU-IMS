@@ -64,6 +64,21 @@
     <title>
       Sign-up
     </title>
+    <script type="text/javascript">
+        validate = () => {
+            let firstName = document.forms[0].firstName.value;
+            let lastName = document.forms[0].lastName.value;
+            let password = document.forms[0].password.value;
+            let email = document.forms[0].email.value;
+
+            if (firstName === "" || lastName === "" || password === "" || email === "") {
+                alert("All fields are required!");
+                return false;
+            }
+            // Additional validation can be added here
+            return true;
+        }
+    </script>
 </head>
 <body>
     <h1>Sign-up</h1>
