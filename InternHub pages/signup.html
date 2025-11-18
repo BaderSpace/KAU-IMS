@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sign-up</title>
+
+<script src="formValid.js"></script>
+<link rel="stylesheet" href="style.css">
+<style>
+        input { margin: 5%;}
+
+        
+.tip { 
+    font-family: sans-serif;
+    color: white;
+    font-size: 12px;
+    margin-top: 10px;
+    align-items: right;
+	justify-content: right;
+}
+
+    </style>
+<script>
+    function helpTip(num){
+          let message = "";
+          switch(num){
+        case 0:
+            message = "Enter your first name in this input box.";
+            break;
+        case 1:
+            message = "Enter your last name in this input box.";
+            break;
+        case 2:
+            
+            message = "Enter your E-mail here, recommended format: Name@Example.com ."
+            break;
+        case 3:
+            
+            message = "Enter your password here(6 digits)."
+            break;
+        case 4:
+        default:
+            message = "";
+            break;
+          }
+          
+          document.getElementById("tip").innerHTML = message;
+    }
+</script>
+
+</head>
+
+<body>
+
+<header>
+        <div style="font-weight: bold; font-size: 25px; padding-left: 20%;">InternHub</div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="login.html">Login</a>
+            <a class = "current" href ="signup.html">Sign-up</a>
+            <a href="about-us.html">About Us</a>
+        </nav>
+    </header>
+
+
+
+<section class="credentials-section">
+<div class="credentials-container">
+<form onsubmit="return validateForm()">
+<h1>Sign-up</h1>
+<p id="tip" class="tip"></p>
+    <label>First name:
+        <input type="text" id="fname" onfocus ="helpTip(0)" onblur="helpTip(4)">
+    </label><br>
+
+    <label>Last name:
+        <input type="text" id="lname" onfocus ="helpTip(1)" onblur="helpTip(4)" >
+    </label><br>
+
+    <label>E-mail:
+        <input type="email" id="Email" onfocus ="helpTip(2)" onblur="helpTip(4)" >
+    </label><br>
+
+    <label>password:
+        <input type="password" id="pass" onfocus ="helpTip(3)" onblur="helpTip(4)">
+    </label><br>
+    
+    <p>
+        <input type="submit" value="Sign-up">
+        <input type="reset" value="clear">
+    </p>
+</form>
+
+ </div>
+</section>
+
+</body>
+</html>

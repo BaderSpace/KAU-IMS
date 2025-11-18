@@ -11,16 +11,16 @@ body {
 }
 
 main {
-	min-height: 100vh;
+    min-height: 100vh;
 }
 
 a {
 	text-decoration: none;
 }
 
-h1 {
-	padding-bottom: 50px;
-	font-weight: bold;
+h1 { 
+    padding-bottom: 50px; 
+    font-weight: bold;
 }
 
 header {
@@ -32,8 +32,9 @@ header {
 	justify-content: space-between;
 }
 
+
 footer {
-	background-color: #000e29;
+    background-color: #000e29;
 	color: #ffffff;
 	height: 100px;
 	display: flex;
@@ -47,16 +48,16 @@ nav {
 	padding-right: 20%;
 }
 
-	nav a {
-		padding: 6px 10px;
-		border-radius: 4px;
-		color: #ffffff;
-	}
+nav a {
+	padding: 6px 10px;
+	border-radius: 4px;
+	color: #ffffff;
+}
 
-		nav a:hover,
-		nav a.current {
-			background: rgba(255, 255, 255, 0.15);
-		}
+nav a:hover,
+nav a.current {
+	background: rgba(255, 255, 255, 0.15);
+}
 
 .top-section {
 	background: linear-gradient(135deg, #000000, #6f7dff);
@@ -77,9 +78,15 @@ nav {
 	padding: 6%;
 }
 
-	.info-section h2 {
-		margin-bottom: 20px;
-	}
+.info-section h2 {
+	margin-bottom: 20px;
+}
+
+img {
+	border-radius: 8px;
+	box-shadow: 0px 2px;
+}
+
 
 section.credentials-section {
 	align-items: center;
@@ -92,8 +99,8 @@ section.credentials-section {
 .text-container {
 	display: inline-block;
 	width: fit-content;
-	height: fit-content;
-	padding: 5%;
+    height: fit-content;
+    padding: 5%;
 }
 
 .card {
@@ -105,12 +112,12 @@ section.credentials-section {
 	color: white;
 	padding: 40px;
 	text-align: center;
+	justify-items: center;
 }
-
-	.card h2 {
-		margin-bottom: 30px;
-		color: #8eb3fd;
-	}
+.card h2 { 
+	margin-bottom: 30px; 
+	color: #8eb3fd; 
+}
 
 
 .credentials-container {
@@ -132,9 +139,9 @@ input {
 	border-radius: 6px;
 }
 
-	input[type="submit"]:hover input[type="reset"]:hover {
-		filter: brightness(0.95);
-	}
+input[type="submit"]:hover input[type="reset"]:hover {
+	filter: brightness(0.95);
+}
 
 .btn {
 	padding: 10px 16px;
@@ -142,27 +149,85 @@ input {
 	border-radius: 6px;
 	background: #e5e7eb;
 	color: #111;
+	z-index: 1;
 }
 
-	.btn.primary {
-		background: #fff;
-		color: #0f62fe;
-		border-color: #fff;
-	}
+.btn.primary {
+	background: #fff;
+	color: #0f62fe;
+	border-color: #fff;
+}
 
-	.btn.outline {
-		background: transparent;
-		color: #fff;
-		border-color: #fff;
-	}
+.btn.outline {
+	background: transparent;
+	color: #fff;
+	border-color: #fff;
+}
 
-	.btn:hover {
-		filter: brightness(0.95);
-	}
+.btn:hover {
+	filter: brightness(0.95);
+}
 
 
 form {
 	align-items: center;
 	justify-content: center;
 	color: white;
+}
+
+.table-container {
+    display: block; /* full-width container */
+    background-color: #0b1736; /* dark blue */
+    color: white;
+    padding: 40px 0; /* top & bottom padding, remove side padding */
+    text-align: center;
+    box-shadow: 0px 3px rgba(0,0,0,0.3);
+    width: 100%; /* stretch full width */
+    margin: 30px 0; /* spacing above and below the container */
+    border-radius: 0; /* remove border radius for full-width effect */
+    border: none; /* optional: remove border for a cleaner look */
+}
+
+.table-container table {
+    margin: 0 auto; /* center the table */
+    width: 80%; /* table width limited inside container */
+    max-width: 900px;
+    border-collapse: collapse;
+    font-size: 1em;
+    color: white;
+}
+
+.table-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #ffffff;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 12px;
+    border: 1px solid #0f62fe; /* table cell border */
+    vertical-align: top;
+}
+
+.comparison-table thead tr {
+    background-color: #0f62fe; /* header row in blue */
+    color: white;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+    background-color: rgba(15, 98, 254, 0.1); /* lighter row for contrast */
+}
+
+.comparison-table td:first-child {
+    font-weight: bold;
+    color: #8eb3fd; /* highlight feature names */
+}
+
+.comparison-table td img {
+    width: 80px; /* small, proportional images */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 2px rgba(0,0,0,0.2);
 }
