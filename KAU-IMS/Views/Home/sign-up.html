@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>
+        Sign-up
+    </title>
+
+    <style>
+        input {
+            margin: 5%;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <header>
+        <div style="font-weight: bold; font-size: 25px; padding-left: 20%;">InternHub</div>
+        <nav>
+            <a href="Index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a class="current" href="sign-up.html">Sign-up</a>
+            <a href="about-us.html">About Us</a>
+        </nav>
+    </header>
+    <section class="credentials-section">
+        <div class="credentials-container">
+
+            <form method="post" action="#">
+                <h1>Sign-up</h1>
+                <input type="hidden" name="recevie" value="manonnom07@gmail.com">
+                <input type="hidden" name="subject" value="User sign-up">
+                <input type="hidden" name="mainSource" value="Main.html">
+                <label>
+                    First name:
+                    <input type="text" placeholder="Enter your first name" required> <br>
+                    <label>
+                        Last name:
+                        <input type="text" placeholder="Enter your last name here" required>  <br>
+                    </label>
+                    <label>
+                        Password:
+                        <input type="password" placeholder="Enter your password" required>
+                    </label> <br>
+
+                    <label>
+                        E-Mail:
+                        <input type="email" placeholder="Yourname@example.com" required>
+                    </label> <br>
+                    <p>
+                        <input type="submit" value="Sign-up">
+                        <input type="reset" value="clear">
+                    </p>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

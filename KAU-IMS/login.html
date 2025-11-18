@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        input { margin: 5%;}
+
+    </style>
+    <title>Login page</title>
+</head>
+<body>
+    <header>
+        <div style="font-weight: bold; font-size: 25px; padding-left: 20%;">InternHub</div>
+        <nav>
+            <a href="Index.html">Home</a>
+            <a class="current" href="login.html">Login</a>
+            <a href="sign-up.html">Sign-up</a>
+            <a href="about-us.html">About Us</a>
+        </nav>
+    </header>
+
+    <section class="credentials-section">
+        <div class="credentials-container">
+            <form method="post" action="#">
+                <h1>Login</h1>
+                <p>
+                    <label>Email: <input type="email" name="email" placeholder="Enter your E-mail" required></label>
+                    <br>
+                    <label>Password: <input type="password" name="password" placeholder="Enter your Password" required></label>
+                </p>
+                <p>
+                    <input type="submit" value="Login" onclick="validate()">
+                </p>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>
