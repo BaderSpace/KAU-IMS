@@ -1,0 +1,76 @@
+@{
+    ViewData["Title"] = "SignUp";
+    Layout = "_InternHubLayout";
+}
+
+@section Scripts {
+    <script src="~/js/formValid.js"></script>
+}
+
+<style>
+    input { margin: 5%; }
+
+    .tip {
+        font-family: sans-serif;
+        color: white;
+        font-size: 12px;
+        margin-top: 10px;
+        align-items: right;
+        justify-content: right;
+    }
+</style>
+
+<script>
+    function helpTip(num) {
+        let message = "";
+        switch (num) {
+            case 0:
+                message = "Enter your first name in this input box.";
+                break;
+            case 1:
+                message = "Enter your last name in this input box.";
+                break;
+            case 2:
+                message = "Enter your E-mail here, recommended format: Name@Example.com .";
+                break;
+            case 3:
+                message = "Enter your password here(6 digits).";
+                break;
+            case 4:
+            default:
+                message = "";
+                break;
+        }
+        document.getElementById("tip").innerHTML = message;
+    }
+</script>
+
+<section class="credentials-section">
+    <div class="credentials-container">
+        <form asp-action="SignUp" asp-controller="Home" method="post" onsubmit="return validateForm()">
+            @Html.AntiForgeryToken()
+            <h1>Sign-up</h1>
+            <p id="tip" class="tip"></p>
+            <label>First name:
+                <input type="text" id="fname" name="fname" onfocus="helpTip(0)" onblur="helpTip(4)">
+            </label><br />
+
+            <label>Last name:
+                <input type="text" id="lname" name="lname" onfocus="helpTip(1)" onblur="helpTip(4)">
+            </label><br />
+
+            <label>E-mail:
+                <input type="email" id="email" name="email" onfocus="helpTip(2)" onblur="helpTip(4)">
+            </label><br />
+
+            <label>password:
+                <input type="password" id="pass" name="pass" onfocus="helpTip(3)" onblur="helpTip(4)">
+            </label><br />
+
+            <p>
+                <input type="submit" value="Sign-up">
+                <input type="reset" value="clear">
+            </p>
+        </form>
+    </div>
+</section>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using KAU_IMS.Models;
 
 namespace KAU_IMS.Data
 {
@@ -9,5 +10,8 @@ namespace KAU_IMS.Data
             : base(options)
         {
         }
+        public DbSet<KAU_IMS.Models.InternShip> InternShip { get; set; } = default!;
+        public DbSet<KAU_IMS.Models.Company> Company { get; set; } = default!;
+        public DbSet<KAU_IMS.Models.Student> Student { get; set; } = default!;
     }
 }

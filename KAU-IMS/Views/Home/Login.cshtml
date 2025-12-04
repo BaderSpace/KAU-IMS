@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_InternHubLayout";
+}
+
+@section Scripts {
+    <script src="~/js/formValid.js"></script>
+}
+
+<style>
+    input { margin: 5%; }
+</style>
+
+<section class="credentials-section">
+    <div class="credentials-container">
+        <form asp-action="Login" asp-controller="Home" method="post" onsubmit="return validateForm()">
+            @Html.AntiForgeryToken()
+            <h1>Login</h1>
+            <p>
+                <label>Email:
+                    <input type="email" name="email" placeholder="Enter your E-mail" required />
+                </label>
+                <br />
+                <label>Password:
+                    <input type="password" name="password" placeholder="Enter your Password" required />
+                </label>
+            </p>
+            <p>
+                <input type="submit" value="Login" />
+            </p>
+        </form>
+    </div>
+</section>

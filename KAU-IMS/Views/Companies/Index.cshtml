@@ -1,0 +1,65 @@
+﻿@model IEnumerable<KAU_IMS.Models.Company>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.company_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.company_description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.company_phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.company_email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.company_url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.company_internships)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.company_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.company_description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.company_phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.company_email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.company_url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.company_internships)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.company_Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.company_Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.company_Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
