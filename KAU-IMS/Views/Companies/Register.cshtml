@@ -1,0 +1,96 @@
+@{
+    ViewData["Title"] = "Company Register";
+    Layout = "_InternHubLayout";
+}
+
+@section Scripts {
+    <script src="~/js/formValid.js"></script>
+}
+
+<style>
+    input { margin: 5%; }
+
+    .tip {
+        font-family: sans-serif;
+        color: white;
+        font-size: 12px;
+        margin-top: 10px;
+        align-items: right;
+        justify-content: right;
+    }
+</style>
+
+<script>
+    function helpTip(num) {
+        let message = "";
+        switch (num) {
+            case 0:
+                message = "Enter your company name in this input box.";
+                break;
+            case 1:
+                message = "Enter your company email here, e.g. contact@company.com.";
+                break;
+            case 2:
+                message = "Enter a phone number we can reach you at.";
+                break;
+            case 3:
+                message = "Briefly describe your company.";
+                break;
+            case 4:
+                message = "Enter your company website URL (optional).";
+                break;
+            case 5:
+                message = "Enter the number of internship positions available.";
+                break;
+            default:
+                message = "";
+                break;
+        }
+        document.getElementById("tip").innerHTML = message;
+    }
+</script>
+
+<section class="credentials-section">
+    <div class="credentials-container">
+        <form asp-action="Create" asp-controller="Companies" method="post" onsubmit="return validateForm()">
+            @Html.AntiForgeryToken()
+            <h1>Company Registration</h1>
+            <p id="tip" class="tip"></p>
+
+            <label>Company Name:
+                <input type="text" id="company_name" name="company_name"
+                       onfocus="helpTip(0)" onblur="helpTip(-1)">
+            </label><br />
+
+            <label>Company Email:
+                <input type="email" id="company_email" name="company_email"
+                       onfocus="helpTip(1)" onblur="helpTip(-1)">
+            </label><br />
+
+            <label>Company Phone:
+                <input type="text" id="company_phone" name="company_phone"
+                       onfocus="helpTip(2)" onblur="helpTip(-1)">
+            </label><br />
+
+            <label>Company Description:
+                <input type="text" id="company_description" name="company_description"
+                       onfocus="helpTip(3)" onblur="helpTip(-1)">
+            </label><br />
+
+            <label>Company Website:
+                <input type="url" id="company_url" name="company_url"
+                       onfocus="helpTip(4)" onblur="helpTip(-1)">
+            </label><br />
+
+            <label>Number of Internships:
+                <input type="number" id="company_internships" name="company_internships"
+                       min="1" onfocus="helpTip(5)" onblur="helpTip(-1)">
+            </label><br />
+
+            <p>
+                <input type="submit" value="Register Company">
+                <input type="reset" value="Clear">
+            </p>
+        </form>
+    </div>
+</section>

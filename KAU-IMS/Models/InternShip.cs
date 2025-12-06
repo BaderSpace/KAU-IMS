@@ -1,18 +1,30 @@
-﻿namespace KAU_IMS.Models
+using System.ComponentModel.DataAnnotations;
+
+namespace KAU_IMS.Models
 {
-    public class InternShip
+    public class Internship
     {
-        public int id { get; set; }
-        public string title { get; set; }
-        public string internship_company { get; set; }
-        public string n_skills { get; set; }
-        public string description { get; set; }
-        public string specialty { get; set; }
+        public int Id { get; set; }
 
-        public InternShip()
-        {
-            
-        }
+        [Required]
+        public string Title { get; set; } = string.Empty;
+
+        [Required]
+        public string Company { get; set; } = string.Empty;
+
+        [Required]
+        public string Description { get; set; } = string.Empty;
+
+        [Required]
+        public string Location { get; set; } = string.Empty;
+
+        [Required]
+        public string RequiredSkills { get; set; } = string.Empty;
+
+        public DateTime PostedDate { get; set; } = DateTime.Now;
+
+        public DateTime? Deadline { get; set; }
+
+        public bool IsActive { get; set; } = true;
     }
-
 }
