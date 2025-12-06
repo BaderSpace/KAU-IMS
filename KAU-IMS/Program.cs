@@ -19,12 +19,12 @@ builder.Services.AddSession(options =>
     options.Cookie.SameSite = SameSiteMode.Strict;
 });
 
-// Configure HTTP Context Accessor for accessing session in views
+
 builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
-// Create database and apply migrations
+
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -52,7 +52,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// Enable Session
+
 app.UseSession();
 
 app.UseAuthorization();

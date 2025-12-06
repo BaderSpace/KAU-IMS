@@ -1,5 +1,9 @@
 wwwroot\css\site.css
+wwwroot\css\style.css
 wwwroot\favicon.ico
+wwwroot\images\InternHub.png
+wwwroot\images\KAULOGO.png
+wwwroot\js\formValid.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -58,7 +62,3 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\css\internhub.css
-wwwroot\js\formValid.js
-wwwroot\img\InternHub.png
-wwwroot\img\KAULOGO.png
