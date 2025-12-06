@@ -1,0 +1,166 @@
+@model List<KAU_IMS.Models.Internship>
+
+@{
+    ViewData["Title"] = "Internships";
+}
+
+@section Styles {
+    <style>
+        .internship-container {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .search-section {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .search-form {
+            display: flex;
+            gap: 10px;
+        }
+        .search-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+        }
+        .internship-grid {
+            display: grid;
+            gap: 20px;
+        }
+        .internship-card {
+            background: white;
+            border: 2px solid #0f62fe;
+            border-radius: 8px;
+            padding: 25px;
+            transition: transform 0.2s;
+        }
+        .internship-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .internship-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+        .internship-title {
+            color: #0f62fe;
+            font-size: 24px;
+            margin: 0;
+        }
+        .company-name {
+            color: #6b7280;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .internship-details {
+            margin: 15px 0;
+        }
+        .detail-item {
+            margin: 8px 0;
+            color: #374151;
+        }
+        .skills-tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin: 3px;
+            font-size: 12px;
+        }
+        .btn-view {
+            background: #0f62fe;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-view:hover {
+            background: #0842a0;
+        }
+    </style>
+}
+
+<div class="internship-container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <h1 style="color: #0f62fe;">Available Internships</h1>
+        @if (Context.Session.GetString("UserId") != null)
+        {
+            <a href="@Url.Action("Create")" class="btn primary">Post New Internship</a>
+        }
+    </div>
+
+    <div class="search-section">
+        <form method="get" asp-action="Index" class="search-form">
+            <input type="text" name="search" class="search-input" 
+                   placeholder="Search by title, company, skills, or location..." 
+                   value="@ViewBag.SearchTerm" />
+            <button type="submit" class="btn primary">Search</button>
+            @if (!string.IsNullOrEmpty(ViewBag.SearchTerm))
+            {
+                <a href="@Url.Action("Index")" class="btn outline">Clear</a>
+            }
+        </form>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="internship-grid">
+            @foreach (var internship in Model)
+            {
+                <div class="internship-card">
+                    <div class="internship-header">
+                        <div>
+                            <h2 class="internship-title">@internship.Title</h2>
+                            <p class="company-name">@internship.Company</p>
+                        </div>
+                        <span style="color: #10b981; font-weight: bold;">Active</span>
+                    </div>
+                    
+                    <div class="internship-details">
+                        <p class="detail-item">
+                            <strong>Location:</strong> @internship.Location
+                        </p>
+                        <p class="detail-item">
+                            <strong>Posted:</strong> @internship.PostedDate.ToString("MMM dd, yyyy")
+                        </p>
+                        @if (internship.Deadline.HasValue)
+                        {
+                            <p class="detail-item">
+                                <strong>Deadline:</strong> @internship.Deadline.Value.ToString("MMM dd, yyyy")
+                            </p>
+                        }
+                        <p class="detail-item">
+                            <strong>Required Skills:</strong><br />
+                            @foreach (var skill in internship.RequiredSkills.Split(','))
+                            {
+                                <span class="skills-tag">@skill.Trim()</span>
+                            }
+                        </p>
+                        <p class="detail-item">
+                            @internship.Description.Substring(0, Math.Min(150, internship.Description.Length))@(internship.Description.Length > 150 ? "..." : "")
+                        </p>
+                    </div>
+                    
+                    <a href="@Url.Action("Details", new { id = internship.Id })" class="btn-view">
+                        View Details & Apply
+                    </a>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="card" style="text-align: center; padding: 60px;">
+            <h2>No Internships Found</h2>
+            <p>@(string.IsNullOrEmpty(ViewBag.SearchTerm) ? "Check back later for new opportunities!" : "Try a different search term.")</p>
+        </div>
+    }
+</div>

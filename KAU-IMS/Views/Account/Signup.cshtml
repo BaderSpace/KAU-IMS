@@ -1,0 +1,119 @@
+@model KAU_IMS.Models.User
+
+@{
+    ViewData["Title"] = "Sign-up";
+}
+
+@section Styles {
+    <style>
+        input { margin: 5%;}
+        
+        .tip { 
+            font-family: sans-serif;
+            color: white;
+            font-size: 12px;
+            margin-top: 10px;
+            align-items: right;
+            justify-content: right;
+        }
+    </style>
+}
+
+<section class="credentials-section">
+    <div class="credentials-container">
+        <form method="post" asp-action="Signup" asp-controller="Account" onsubmit="return validateSignupForm()">
+            <h1>Sign-up</h1>
+            <p id="tip" class="tip"></p>
+            
+            <label>
+                First name:
+                <input type="text" id="fname" name="FirstName" onfocus="helpTip(0)" onblur="helpTip(4)" required />
+            </label><br>
+
+            <label>
+                Last name:
+                <input type="text" id="lname" name="LastName" onfocus="helpTip(1)" onblur="helpTip(4)" required />
+            </label><br>
+
+            <label>
+                E-mail:
+                <input type="email" id="email" name="Email" onfocus="helpTip(2)" onblur="helpTip(4)" required />
+            </label><br>
+
+            <label>
+                Password:
+                <input type="password" id="pass" name="Password" onfocus="helpTip(3)" onblur="helpTip(4)" required />
+            </label><br>
+            
+            <p>
+                <input type="submit" value="Sign-up" />
+                <input type="reset" value="Clear" />
+            </p>
+            
+            <p style="color: white; font-size: 14px;">
+                Already have an account? <a href="@Url.Action("Login", "Account")" style="color: #8eb3fd;">Login here</a>
+            </p>
+        </form>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        function helpTip(num){
+            let message = "";
+            switch(num){
+                case 0:
+                    message = "Enter your first name in this input box.";
+                    break;
+                case 1:
+                    message = "Enter your last name in this input box.";
+                    break;
+                case 2:
+                    message = "Enter your E-mail here, recommended format: Name@Example.com .";
+                    break;
+                case 3:
+                    message = "Enter your password here (minimum 6 characters).";
+                    break;
+                case 4:
+                default:
+                    message = "";
+                    break;
+            }
+            document.getElementById("tip").innerHTML = message;
+        }
+
+        function validateSignupForm() {
+            var fname = document.getElementById("fname").value;
+            var lname = document.getElementById("lname").value;
+            var email = document.getElementById("email").value;
+            var pass = document.getElementById("pass").value;
+
+            if (fname == "" || lname == "" || email == "" || pass == "") {
+                alert("Please fill in all fields.");
+                return false;
+            }
+
+            if (!isNaN(fname)) {
+                alert("First name must contain letters.");
+                return false;
+            }
+
+            if (!isNaN(lname)) {
+                alert("Last name must contain letters.");
+                return false;
+            }
+
+            if (email.indexOf("@@") == -1) {
+                alert("Email must contain '@@'.");
+                return false;
+            }
+
+            if (pass.length < 6) {
+                alert("Password must be at least 6 characters.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+}

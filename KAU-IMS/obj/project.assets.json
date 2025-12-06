@@ -8358,23 +8358,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bader\\.nuget\\packages\\": {},
+    "C:\\Users\\Omar Alobhani\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bader\\source\\repos\\KAU-IMS\\KAU-IMS\\KAU-IMS.csproj",
+      "projectUniqueName": "C:\\Users\\Omar Alobhani\\source\\repos\\BaderSpace\\KAU-IMS\\KAU-IMS\\KAU-IMS.csproj",
       "projectName": "KAU-IMS",
-      "projectPath": "C:\\Users\\Bader\\source\\repos\\KAU-IMS\\KAU-IMS\\KAU-IMS.csproj",
-      "packagesPath": "C:\\Users\\Bader\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bader\\source\\repos\\KAU-IMS\\KAU-IMS\\obj\\",
+      "projectPath": "C:\\Users\\Omar Alobhani\\source\\repos\\BaderSpace\\KAU-IMS\\KAU-IMS\\KAU-IMS.csproj",
+      "packagesPath": "C:\\Users\\Omar Alobhani\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Omar Alobhani\\source\\repos\\BaderSpace\\KAU-IMS\\KAU-IMS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Bader\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Omar Alobhani\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8383,6 +8383,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8401,7 +8402,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -8455,8 +8456,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Omar Alobhani\\source\\repos\\BaderSpace\\KAU-IMS\\KAU-IMS\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0."
+    }
+  ]
 }
