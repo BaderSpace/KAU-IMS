@@ -1,0 +1,96 @@
+@model KAU_IMS.Models.Internship
+
+@{
+    ViewData["Title"] = "Post New Internship";
+}
+
+@section Styles {
+    <style>
+        .create-container {
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .form-container {
+            background: white;
+            border: 2px solid #0f62fe;
+            border-radius: 8px;
+            padding: 40px;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #374151;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            font-family: Arial;
+        }
+        .form-group textarea {
+            min-height: 120px;
+        }
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+    </style>
+}
+
+<div class="create-container">
+    <h1 style="color: #0f62fe; margin-bottom: 30px;">Post New Internship</h1>
+
+    <div class="form-container">
+        <form method="post" asp-action="Create" asp-controller="Internship">
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <label for="Title">Internship Title *</label>
+                <input type="text" id="Title" name="Title" required 
+                       placeholder="e.g., Software Development Intern" />
+            </div>
+
+            <div class="form-group">
+                <label for="Company">Company Name *</label>
+                <input type="text" id="Company" name="Company" required 
+                       placeholder="e.g., Tech Solutions Inc." />
+            </div>
+
+            <div class="form-group">
+                <label for="Location">Location *</label>
+                <input type="text" id="Location" name="Location" required 
+                       placeholder="e.g., Jeddah, Saudi Arabia or Remote" />
+            </div>
+
+            <div class="form-group">
+                <label for="Description">Description *</label>
+                <textarea id="Description" name="Description" required 
+                          placeholder="Describe the internship role, responsibilities, and what the intern will learn..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="RequiredSkills">Required Skills * (comma-separated)</label>
+                <input type="text" id="RequiredSkills" name="RequiredSkills" required 
+                       placeholder="e.g., C#, ASP.NET, SQL, JavaScript" />
+            </div>
+
+            <div class="form-group">
+                <label for="Deadline">Application Deadline</label>
+                <input type="date" id="Deadline" name="Deadline" />
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn primary">Post Internship</button>
+                <a href="@Url.Action("Index")" class="btn outline">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

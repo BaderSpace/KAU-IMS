@@ -1,0 +1,124 @@
+@model KAU_IMS.Models.Internship
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+@section Styles {
+    <style>
+        .details-container {
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .internship-detail-card {
+            background: white;
+            border: 2px solid #0f62fe;
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 20px;
+        }
+        .detail-section {
+            margin: 25px 0;
+        }
+        .detail-section h3 {
+            color: #0f62fe;
+            margin-bottom: 10px;
+        }
+        .application-form {
+            background: #f9fafb;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            min-height: 120px;
+            font-family: Arial;
+        }
+    </style>
+}
+
+<div class="details-container">
+    <a href="@Url.Action("Index")" style="color: #0f62fe; text-decoration: none; margin-bottom: 20px; display: inline-block;">
+        ← Back to Internships
+    </a>
+
+    <div class="internship-detail-card">
+        <h1 style="color: #0f62fe; margin-bottom: 10px;">@Model.Title</h1>
+        <h2 style="color: #6b7280; font-size: 20px; margin-bottom: 30px;">@Model.Company</h2>
+
+        <div class="detail-section">
+            <h3>Location</h3>
+            <p>@Model.Location</p>
+        </div>
+
+        <div class="detail-section">
+            <h3>Description</h3>
+            <article>
+                @Model.Description
+            </article>
+        </div>
+
+        <div class="detail-section">
+            <h3>Required Skills</h3>
+            <p>
+                @foreach (var skill in Model.RequiredSkills.Split(','))
+                {
+                    <span class="skills-tag" style="display: inline-block; background: #dbeafe; color: #1e40af; padding: 6px 12px; border-radius: 4px; margin: 5px;">
+                        @skill.Trim()
+                    </span>
+                }
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h3>Important Dates</h3>
+            <p><strong>Posted:</strong> @Model.PostedDate.ToString("MMMM dd, yyyy")</p>
+            @if (Model.Deadline.HasValue)
+            {
+                <p><strong>Application Deadline:</strong> @Model.Deadline.Value.ToString("MMMM dd, yyyy")</p>
+            }
+        </div>
+    </div>
+
+    @if (Context.Session.GetString("UserId") != null)
+    {
+        @if (ViewBag.AlreadyApplied == true)
+        {
+            <div class="alert alert-info">
+                <strong>You have already applied to this internship.</strong> Check your dashboard to track the status.
+            </div>
+        }
+        else
+        {
+            <div class="application-form">
+                <h2 style="color: #0f62fe; margin-bottom: 20px;">Apply for this Internship</h2>
+                <form method="post" asp-action="Apply" asp-controller="Internship">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="internshipId" value="@Model.Id" />
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 10px; font-weight: bold;">
+                            Cover Letter (Optional)
+                        </label>
+                        <textarea name="coverLetter" placeholder="Tell us why you're interested in this internship and what makes you a good fit..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn primary" style="padding: 12px 30px; font-size: 16px;">
+                        Submit Application
+                    </button>
+                </form>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="alert alert-info">
+            <strong>Please <a href="@Url.Action("Login", "Account")" style="color: #0f62fe;">login</a> to apply for this internship.</strong>
+        </div>
+    }
+</div>
