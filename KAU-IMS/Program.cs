@@ -6,25 +6,25 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-
+// Configure SQLite Database
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite("Data Source=kau_ims.db"));
 
-
+// Configure Session
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(5);
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
-    options.Cookie.SameSite = SameSiteMode.Strict;
 });
 
-
+// Configure HTTP Context Accessor for accessing session in views
 builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
-
+// Create database and apply migrations
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -52,7 +52,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-
+// Enable Session
 app.UseSession();
 
 app.UseAuthorization();

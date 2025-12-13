@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KAU_IMS.Models
 {
@@ -26,5 +27,10 @@ namespace KAU_IMS.Models
         public DateTime? Deadline { get; set; }
 
         public bool IsActive { get; set; } = true;
+
+        public int? CompanyId { get; set; }
+
+        [ForeignKey("CompanyId")]
+        public virtual Company? CompanyOwner { get; set; }
     }
 }

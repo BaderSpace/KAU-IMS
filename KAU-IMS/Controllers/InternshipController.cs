@@ -56,7 +56,10 @@ namespace KAU_IMS.Controllers
 
         public IActionResult Create()
         {
-            if (HttpContext.Session.GetString("UserId") == null)
+            var companyIdString = HttpContext.Session.GetString("CompanyId");
+            var userIdString = HttpContext.Session.GetString("UserId");
+
+            if (string.IsNullOrEmpty(companyIdString) && string.IsNullOrEmpty(userIdString))
             {
                 TempData["ErrorMessage"] = "Please login to post internships.";
                 return RedirectToAction("Login", "Account");
@@ -74,10 +77,26 @@ namespace KAU_IMS.Controllers
                 internship.PostedDate = DateTime.Now;
                 internship.IsActive = true;
 
+                var companyIdString = HttpContext.Session.GetString("CompanyId");
+                if (!string.IsNullOrEmpty(companyIdString))
+                {
+                    internship.CompanyId = int.Parse(companyIdString);
+                    var company = _context.Companies.Find(internship.CompanyId);
+                    if (company != null)
+                    {
+                        internship.Company = company.CompanyName;
+                    }
+                }
+
                 _context.Internships.Add(internship);
                 _context.SaveChanges();
 
                 TempData["SuccessMessage"] = "Internship posted successfully!";
+
+                if (!string.IsNullOrEmpty(companyIdString))
+                {
+                    return RedirectToAction("CompanyDashboard", "Dashboard");
+                }
                 return RedirectToAction("Index");
             }
 

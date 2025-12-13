@@ -45,6 +45,67 @@ namespace KAU_IMS.Controllers
             return View(applications);
         }
 
+        public IActionResult CompanyDashboard()
+        {
+            var companyIdString = HttpContext.Session.GetString("CompanyId");
+            if (string.IsNullOrEmpty(companyIdString))
+            {
+                TempData["ErrorMessage"] = "Please login to access dashboard.";
+                return RedirectToAction("Login", "Account");
+            }
+
+            int companyId = int.Parse(companyIdString);
+            var company = _context.Companies.Find(companyId);
+
+            if (company == null)
+            {
+                HttpContext.Session.Clear();
+                return RedirectToAction("Login", "Account");
+            }
+
+            var internships = _context.Internships
+                .Where(i => i.CompanyId == companyId)
+                .OrderByDescending(i => i.PostedDate)
+                .ToList();
+
+            ViewBag.Company = company;
+            ViewBag.InternshipCount = internships.Count;
+            ViewBag.LastLogin = Request.Cookies["LastLogin"];
+
+            return View(internships);
+        }
+
+        public IActionResult ViewApplications(int internshipId)
+        {
+            var companyIdString = HttpContext.Session.GetString("CompanyId");
+            if (string.IsNullOrEmpty(companyIdString))
+            {
+                TempData["ErrorMessage"] = "Please login to access this page.";
+                return RedirectToAction("Login", "Account");
+            }
+
+            int companyId = int.Parse(companyIdString);
+            var internship = _context.Internships.Find(internshipId);
+
+            if (internship == null || internship.CompanyId != companyId)
+            {
+                TempData["ErrorMessage"] = "Internship not found or access denied.";
+                return RedirectToAction("CompanyDashboard");
+            }
+
+            var applications = _context.Applications
+                .Include(a => a.User)
+                .Include(a => a.Internship)
+                .Where(a => a.InternshipId == internshipId)
+                .OrderByDescending(a => a.AppliedDate)
+                .ToList();
+
+            ViewBag.Internship = internship;
+            ViewBag.ApplicationCount = applications.Count;
+
+            return View(applications);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteApplication(int id)
