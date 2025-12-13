@@ -6,7 +6,6 @@
     <title>@ViewData["Title"] - InternHub</title>
     <link rel="stylesheet" href="~/css/style.css" />
     <style>
-        /* Internal CSS for additional styling */
         .alert {
             padding: 15px;
             margin-bottom: 20px;
@@ -46,6 +45,14 @@
                    href="@Url.Action("Index", "Internship")">Internships</a>
                 <a class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "current" : "")" 
                    href="@Url.Action("Index", "Dashboard")">Dashboard</a>
+                <a href="@Url.Action("Logout", "Account")">Logout</a>
+            }
+            else if (Context.Session.GetString("CompanyId") != null)
+            {
+                <a class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Internship" ? "current" : "")" 
+                   href="@Url.Action("Index", "Internship")">Internships</a>
+                <a class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "current" : "")" 
+                   href="@Url.Action("CompanyDashboard", "Dashboard")">Dashboard</a>
                 <a href="@Url.Action("Logout", "Account")">Logout</a>
             }
             else

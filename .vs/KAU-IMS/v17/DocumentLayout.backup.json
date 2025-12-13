@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Bader\\source\\repos\\KAU-IMS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0948CA0D-E82D-4695-9BC8-132F8F53A18C}|KAU-IMS\\KAU-IMS.csproj|c:\\users\\bader\\source\\repos\\kau-ims\\kau-ims\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0948CA0D-E82D-4695-9BC8-132F8F53A18C}|KAU-IMS\\KAU-IMS.csproj|solutionrelative:kau-ims\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Bader\\AppData\\Local\\SourceServer\\6d441d37317bae665e3d4ea461f6aaf693bac162ef1485fd019b1b65c2f2594b\\KAU-IMS\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -26,19 +22,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Bader\\source\\repos\\KAU-IMS\\KAU-IMS\\Program.cs",
-              "RelativeDocumentMoniker": "KAU-IMS\\Program.cs",
-              "ToolTip": "C:\\Users\\Bader\\source\\repos\\KAU-IMS\\KAU-IMS\\Program.cs",
-              "RelativeToolTip": "KAU-IMS\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-06T12:54:38.46Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Bader\\AppData\\Local\\SourceServer\\6d441d37317bae665e3d4ea461f6aaf693bac162ef1485fd019b1b65c2f2594b\\KAU-IMS\\Program.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\SourceServer\\6d441d37317bae665e3d4ea461f6aaf693bac162ef1485fd019b1b65c2f2594b\\KAU-IMS\\Program.cs",
