@@ -1,0 +1,127 @@
+@model KAU_IMS.Models.Company
+
+@{
+    ViewData["Title"] = "Company Sign-up";
+}
+
+@section Styles {
+    <style>
+        input { margin: 5%;}
+        
+        .tip { 
+            font-family: sans-serif;
+            color: white;
+            font-size: 12px;
+            margin-top: 10px;
+            align-items: right;
+            justify-content: right;
+        }
+    </style>
+}
+
+<section class="credentials-section">
+    <div class="credentials-container">
+        <form method="post" asp-action="CompanySignup" asp-controller="Account" onsubmit="return validateCompanySignupForm()">
+            <h1>Company Sign-up</h1>
+            <p id="tip" class="tip"></p>
+            
+            <label>
+                Company Name:
+                <input type="text" id="companyname" name="CompanyName" onfocus="helpTip(0)" onblur="helpTip(6)" required />
+            </label><br>
+
+            <label>
+                E-mail:
+                <input type="email" id="email" name="Email" onfocus="helpTip(1)" onblur="helpTip(6)" required />
+            </label><br>
+
+            <label>
+                Password:
+                <input type="password" id="pass" name="Password" onfocus="helpTip(2)" onblur="helpTip(6)" required />
+            </label><br>
+
+            <label>
+                Industry:
+                <input type="text" id="industry" name="Industry" onfocus="helpTip(3)" onblur="helpTip(6)" />
+            </label><br>
+
+            <label>
+                Location:
+                <input type="text" id="location" name="Location" onfocus="helpTip(4)" onblur="helpTip(6)" />
+            </label><br>
+
+            <label>
+                Website:
+                <input type="url" id="website" name="Website" onfocus="helpTip(5)" onblur="helpTip(6)" placeholder="https://example.com" />
+            </label><br>
+            
+            <p>
+                <input type="submit" value="Sign-up" />
+                <input type="reset" value="Clear" />
+            </p>
+            
+            <p style="color: white; font-size: 14px;">
+                Already have an account? <a href="@Url.Action("Login", "Account")" style="color: #8eb3fd;">Login here</a>
+            </p>
+            <p style="color: white; font-size: 14px;">
+                Are you a student? <a href="@Url.Action("Signup", "Account")" style="color: #8eb3fd;">Student Sign-up</a>
+            </p>
+        </form>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        function helpTip(num){
+            let message = "";
+            switch(num){
+                case 0:
+                    message = "Enter your company name in this input box.";
+                    break;
+                case 1:
+                    message = "Enter your company E-mail here, recommended format: Name@Example.com .";
+                    break;
+                case 2:
+                    message = "Enter your password here (minimum 6 characters).";
+                    break;
+                case 3:
+                    message = "Enter your company industry (optional).";
+                    break;
+                case 4:
+                    message = "Enter your company location (optional).";
+                    break;
+                case 5:
+                    message = "Enter your company website URL (optional).";
+                    break;
+                case 6:
+                default:
+                    message = "";
+                    break;
+            }
+            document.getElementById("tip").innerHTML = message;
+        }
+
+        function validateCompanySignupForm() {
+            var companyname = document.getElementById("companyname").value;
+            var email = document.getElementById("email").value;
+            var pass = document.getElementById("pass").value;
+
+            if (companyname == "" || email == "" || pass == "") {
+                alert("Please fill in all required fields.");
+                return false;
+            }
+
+            if (email.indexOf("@@") == -1) {
+                alert("Email must contain '@@'.");
+                return false;
+            }
+
+            if (pass.length < 6) {
+                alert("Password must be at least 6 characters.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+}
